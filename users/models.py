@@ -21,3 +21,22 @@ class CustomUser(AbstractBaseUser):
     def get_full_name(self):
         full_name = '%s %s' % (self.first_name, self.last_name)
         return full_name.strip()
+
+class EmployeeDepartment(models.Model):
+    name = models.CharField(max_length=150)
+    description = models.CharField(max_length=255, blank=True, null=True)
+    d_code = models.CharField(max_length=25)
+
+    class Meta:
+        unique_together = ('name', 'd_code')
+
+    def __str__(self):
+        return self.d_code
+    
+class Employee(CustomUser):
+    employee_code = models.CharField(max_length=25, unique=True)
+    department = models.ForeignKey(EmployeeDepartment)
+    joining_date = models.DateField(auto_now_add=False, auto_now=False)
+
+    def __str__(self):
+        return self.employee_code
