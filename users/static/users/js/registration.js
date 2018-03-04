@@ -90,7 +90,7 @@ function signin(){
             dataType: "json",
             success: function(response){
                 if(response.error == ''){
-                    location.href = "/thanks/";
+                    location.href = "/feature/listing/";
                 }
                 else{
                     customAlert(response.error);

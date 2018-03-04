@@ -12,10 +12,6 @@ class Product(models.Model):
 
 class Client(models.Model):
     name = models.CharField(max_length=75)
-    priority = models.PositiveSmallIntegerField(default=1)
-
-    class Meta:
-        unique_together = (('name', 'priority'), )
 
     def __str__(self):
         return self.name
@@ -26,6 +22,10 @@ class Feature(models.Model):
     target_date = models.DateTimeField(auto_now_add=False, auto_now=False)
     product = models.ForeignKey(Product)
     client = models.ForeignKey(Client)
+    priority = models.PositiveSmallIntegerField(default=1)
+
+    class Meta:
+        unique_together = (('client', 'priority'), )
 
     def __str__(self):
         return self.title
