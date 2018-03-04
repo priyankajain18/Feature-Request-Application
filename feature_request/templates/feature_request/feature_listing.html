@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block 'content' %}
+    <a href="{% url 'feature_add' %}" class="btn btn-primary pull-right mr-75 mb-25" style="margin-top:-75px">Add Feature</a>
     <div class="container mt-100">
         <table class="table table-striped table-bordered table-hover">
             <thead>
@@ -19,7 +20,7 @@
             <tbody>
                 {% for feature in object_list %}
                     <tr>
-                        <td>{{feature.title}}</td>
+                        <td><a href="{% url 'feature_detail' feature.id %}">{{feature.title}}</a></td>
                         <td>{{feature.client.name}}</td>
                         <td>{{feature.priority}}</td>
                         <td>{{feature.target_date | date}}</td>

@@ -20,7 +20,7 @@ from django.views.generic import TemplateView
 from users.views import sign_up, sign_in
 
 urlpatterns = [
-    url('^$', TemplateView.as_view(template_name='users/index.html')),
+    url(r'^$', TemplateView.as_view(template_name='users/index.html')),
     url(r'^sign-up/$', sign_up, name='signup'),
     url(r'^sign-in/$', sign_in, name="signin"),
     url(r'^thanks/$', TemplateView.as_view(template_name='users/thanks.html')),

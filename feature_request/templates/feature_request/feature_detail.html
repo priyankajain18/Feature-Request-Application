@@ -1,0 +1,33 @@
+{% extends 'users/index.html' %}
+
+{% block 'title' %}
+    <title>Feature Detail</title>
+{% endblock %}
+
+{% block 'content' %}
+    <div class="container mt-100">
+        <table class="table table-striped table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <td><b>Title</b></td>
+                    <td>{{feature.title}}</a></td>
+                </tr>
+                <tr>
+                    <td><b>Description</b></td>
+                    <td>{{feature.description}}</td>
+                </tr>
+                <tr>
+                    <td><b>Priority</b></td>
+                    <td>{{feature.priority}}</td>
+                </tr>
+                <tr>
+                    <td><b>Target Date</b></td>
+                    <td>{{feature.target_date | date}}</td>
+                </tr>
+                    <td><b>Product</b></td>
+                    <td>{{feature.product.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
