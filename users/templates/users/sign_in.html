@@ -1,0 +1,34 @@
+{% extends 'users/index.html' %}
+
+{% block 'title' %}
+    <title>Sign In</title>
+{% endblock %}
+
+{% load static %}
+{% load staticfiles %}
+
+{% block 'content' %}
+    <p class="text-center welcome-txt mt-50">Sign Up</p>
+    <div class="mt-25 ml-500">{% csrf_token %}
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="e_code">Employee Code</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Code" id="e_code">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" id="password" maxlength="6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 mt-25">
+                <a href="{% url 'signin' %}" class="btn btn-primary">Cancel</a>
+            </div>
+            <div class="col-md-1 mt-25 ml-15">
+                <button class="btn btn-success" onclick="signin()">Submit</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

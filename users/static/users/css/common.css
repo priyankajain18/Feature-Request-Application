@@ -1,0 +1,45 @@
+.welcome-txt{
+    text-align: center;
+    font-weight: 300;
+    color: #999999;
+    font-size: 35px;
+    position: relative;
+}
+.index-btn{
+    width: 30% !important;
+    font-size: 18px !important;
+    font-weight: 200 !important;
+    color: #999999 !important;
+}
+.btn-default:hover{
+    background-color: #f2f2f2 !important;
+}
+.button-container{
+    margin-top: 2% !important;
+    margin-left: 28% !important;
+    position: relative;
+}
+.mt-15{
+    margin-top: 15px !important;
+}
+.mt-25{
+    margin-top: 25px !important;
+}
+.mt-50{
+    margin-top: 50px !important;
+}
+.mt-100{
+    margin-top: 100px !important;
+}
+.ml-15{
+    margin-left: 15px !important;
+}
+.ml-350{
+    margin-left: 350px !important;
+}
+.ml-500{
+    margin-left: 500px !important;
+}
+.ml-525{
+    margin-left: 525px !important;
+}

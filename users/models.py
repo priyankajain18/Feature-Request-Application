@@ -36,7 +36,7 @@ class EmployeeDepartment(models.Model):
 class Employee(CustomUser):
     employee_code = models.CharField(max_length=25, unique=True)
     department = models.ForeignKey(EmployeeDepartment)
-    joining_date = models.DateField(auto_now_add=False, auto_now=False)
+    joining_date = models.DateField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
         return self.employee_code
