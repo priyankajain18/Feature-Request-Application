@@ -7,7 +7,7 @@ from django.contrib import auth
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from users.models import EmployeeDepartment, Employee
+from users.models import EmployeeDepartment, Employee, CustomUser
 
 @api_view(['GET', 'POST'])
 def sign_up(request):
@@ -18,12 +18,13 @@ def sign_up(request):
     if request.method == "POST":
         data = request.POST
         
-        if Employee.objects.filter(employee_code=data['e_code']) or Employee.objects.filter(email=data['email']):
+        if Employee.objects.filter(employee_code=data['e_code']) or Employee.objects.filter(user__email=data['email']):
             return Response({'e_message': 'Employee Already Exists'})
             
-        Employee.objects.create(first_name=data['first_name'], last_name=data['last_name'], \
-            email=data['email'], contact_number=data['contact_number'], employee_code=data['e_code'], \
-            department_id=data['d_code'])
+        user = CustomUser.objects.create_user(email=data['email'], \
+            password=data['password'], first_name=data['first_name'], last_name=data['last_name'], \
+            contact_number=data['contact_number'])
+        Employee.objects.create(employee_code=data['e_code'], department_id=data['d_code'], user=user)
             
         return Response({'e_message': ''})
 
@@ -36,7 +37,7 @@ def sign_in(request):
         data = request.POST
         context = {}
 
-        user = auth.authenticate(e_code=data['e_code'], password=data['password'])
+        user = auth.authenticate(email=data['email'], password=data['password'])
         if user is not None:
             auth.login(request, user)
             context['user_id'] = user.id
@@ -50,9 +51,8 @@ def sign_in(request):
             context['d_code'] = user.department.d_code
             context['success'] = True
             context['error'] = ""
-
         else:
             context['success'] = False
-            context['error'] = "Employee Not Registered"
+            context['error'] = "Either Employee Code or Password is Incorrect"
 
         return Response(context)

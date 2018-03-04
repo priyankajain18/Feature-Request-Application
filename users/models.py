@@ -33,7 +33,8 @@ class EmployeeDepartment(models.Model):
     def __str__(self):
         return self.d_code
     
-class Employee(CustomUser):
+class Employee(models.Model):
+    user = models.ForeignKey(CustomUser)
     employee_code = models.CharField(max_length=25, unique=True)
     department = models.ForeignKey(EmployeeDepartment)
     joining_date = models.DateField(auto_now_add=True, auto_now=False)

@@ -64,12 +64,15 @@ function signup(){
 
 function signin(){
     var data = {
-        'e_code': $("#e_code").val(),
+        'email': $("#email").val(),
         'password': $("#password").val()
     }
 
-    if(data.e_code == ''){
+    if(data.email == ''){
         customAlert("Enter Employee Code");
+    }
+    else if(!validateEmail(data.email)){
+        customAlert("Enter Correct Email");
     }
     else if(data.password == ''){
         customAlert("Enter Password");

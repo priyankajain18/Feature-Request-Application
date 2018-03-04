@@ -8,12 +8,13 @@
 {% load staticfiles %}
 
 {% block 'content' %}
-    <p class="text-center welcome-txt mt-50">Sign Up</p>
+    <a href="{% url 'signup' %}" class="btn btn-primary pull-right mr-75 mb-25 mt-15">Sign Up</a><br>
+    <p class="text-center welcome-txt mt-100">Sign In</p>
     <div class="mt-25 ml-500">{% csrf_token %}
         <div class="row">
             <div class="form-group col-md-5">
-                <label for="e_code">Employee Code</label>
-                <input type="text" class="form-control" placeholder="Enter Employee Code" id="e_code">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" placeholder="Enter Email" id="email">
             </div>
         </div>
         <div class="row">

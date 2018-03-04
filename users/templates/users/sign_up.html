@@ -8,7 +8,8 @@
 {% load staticfiles %}
 
 {% block 'content' %}
-    <p class="text-center welcome-txt mt-50">Sign In</p>
+    <a href="{% url 'signin' %}" class="btn btn-primary pull-right mr-75 mb-25 mt-15">Sign In</a><br>
+    <p class="text-center welcome-txt mt-50 ml-100">Sign Up</p>
     <div class="mt-25 ml-350">{% csrf_token %}
         <div class="row">
             <div class="form-group col-md-4">
