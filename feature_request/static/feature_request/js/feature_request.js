@@ -40,10 +40,7 @@ function add_feature(){
             url: "/feature/add/",
             data: data,  
             dataType: "json",
-            success: function(response){
-                console.log("Hi")
-                console.log(response)
-            }
+            success: function(response){}
         });
     }
 }

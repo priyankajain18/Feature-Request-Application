@@ -39,9 +39,9 @@ class FeatureAddView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        data = request.POST
-        context = {}
+        context = super(FeatureAddView, self).get_context_data(**kwargs)
 
+        data = request.POST
         feature_data = {
             'title': data['title'],
             'description': data['description'],
@@ -63,4 +63,4 @@ class FeatureAddView(TemplateView):
         except Feature.DoesNotExist:
             Feature.objects.create(**feature_data)
 
-        return Response(context)
+        return super(FeatureAddView, self).render_to_response(context)

@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block 'content' %}
+    <a href="{% url 'feature_listing' %}" class="btn btn-primary pull-right mr-175 mb-25" style="margin-top:-75px">Feature List</a>
+    <a href="{% url 'logout' %}" class="btn btn-default pull-right mr-75 mb-25" style="margin-top:-75px">Log Out</a>
     <div class="container mt-100">
+        <p class="text-center welcome-txt">Feature Detail</p>
         <table class="table table-striped table-bordered table-hover">
             <tbody>
                 <tr>

@@ -1,9 +1,10 @@
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
 from feature_request.views import FeatureListingView, FeatureDetailView, FeatureAddView
 
 urlpatterns = [
-    url(r'^listing/$', FeatureListingView.as_view(), name="feature_listing"),
-    url(r'^detail/(?P<pk>[0-9]+)/$', FeatureDetailView.as_view(), name="feature_detail"),
-    url(r'^add/$', FeatureAddView.as_view(), name="feature_add"),
+    url(r'^listing/$', login_required(FeatureListingView.as_view(), login_url="signin"), name="feature_listing"),
+    url(r'^detail/(?P<pk>[0-9]+)/$', login_required(FeatureDetailView.as_view(), login_url="signin"), name="feature_detail"),
+    url(r'^add/$', login_required(FeatureAddView.as_view(), login_url="signin"), name="feature_add"),
 ]
