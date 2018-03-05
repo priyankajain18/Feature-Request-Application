@@ -41,12 +41,8 @@ function add_feature(){
             data: data,  
             dataType: "json",
             success: function(response){
-                if(response.e_message == ''){
-                    location.href = "/feature/listing/";
-                }
-                else{
-                    customAlert(response.e_message);
-                }
+                console.log("Hi")
+                console.log(response)
             }
         });
     }

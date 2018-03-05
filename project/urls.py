@@ -17,12 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from users.views import sign_up, sign_in
+from users.views import sign_up, sign_in, logout
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='users/index.html')),
     url(r'^sign-up/$', sign_up, name='signup'),
     url(r'^sign-in/$', sign_in, name="signin"),
+    url(r'^logout/$', logout, name="logout"),
     url(r'^thanks/$', TemplateView.as_view(template_name='users/thanks.html')),
     url(r'^feature/', include('feature_request.urls')),
     url(r'^admin/', admin.site.urls),

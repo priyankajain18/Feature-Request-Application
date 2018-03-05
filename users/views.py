@@ -41,18 +41,15 @@ def sign_in(request):
         if user is not None:
             auth.login(request, user)
             context['user_id'] = user.id
-            context['first_name'] = user.first_name
-            context['last_name'] = user.last_name
-            context['email'] = user.email
-            context['employee_code'] = user.employee_code
-            context['joining_date'] = user.joining_date
-            context['d_name'] = user.department.name
-            context['d_description'] = user.department.description
-            context['d_code'] = user.department.d_code
+            
             context['success'] = True
             context['error'] = ""
         else:
             context['success'] = False
-            context['error'] = "Either Employee Code or Password is Incorrect"
+            context['error'] = "Either Email or Password is Incorrect"
 
         return Response(context)
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'users/sign_in.html')
