@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^logout/$', logout, name="logout"),
     url(r'^thanks/$', TemplateView.as_view(template_name='users/thanks.html')),
     url(r'^feature/', include('feature_request.urls')),
+    url(r'^api/', include('project.api_urls')),
     url(r'^admin/', admin.site.urls),
 ]

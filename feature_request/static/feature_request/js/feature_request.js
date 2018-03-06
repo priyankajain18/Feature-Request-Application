@@ -1,12 +1,13 @@
 $(function () {
-  $("#target_date").datepicker({ 
+  $("#target_date").datepicker({
         autoclose: true, 
         todayHighlight: true
-  }).datepicker('update', new Date());
+  }).datepicker();
 });
 
-function add_feature(){
+function add_edit_feature(){
     var data = {
+        'id': $("#feature_id").val(),
         'title': $("#title").val(),
         'description': $("#description").val(),
         'client_id': $("#client").val(),
@@ -37,10 +38,12 @@ function add_feature(){
         });
         $.ajax({  
             type: "POST",  
-            url: "/feature/add/",
-            data: data,  
-            dataType: "json",
-            success: function(response){}
+            url: "/api/feature/add/",
+            data: data,
+            success: function(response){
+                window.location = "/feature/listing/";
+            }
         });
     }
 }
+  

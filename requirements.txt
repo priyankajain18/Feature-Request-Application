@@ -2,3 +2,4 @@ django==1.11
 MySQL-python
 django-phonenumber-field
 djangorestframework==3.6.2
+gunicorn==19.6.0
