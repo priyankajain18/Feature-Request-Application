@@ -44,3 +44,15 @@ python manage.py collectstatic
 python manage.py runserver
 Access http://127.0.0.1:8000/
 ```
+## Screenshots
+![Sign Up Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/signup.png)
+---
+![Sign In Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/signin.png)
+---
+![Feature List Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/list.png)
+---
+![Feature Add Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/add_feature.png)
+---
+![Feature Detail Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/detail.png)
+---
+![Feature Edit Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/edit.png)

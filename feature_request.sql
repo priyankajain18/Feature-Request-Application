@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2018 at 08:32 PM
+-- Generation Time: Mar 08, 2018 at 10:23 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.5.34
 
@@ -187,6 +187,13 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `django_session`
+--
+
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('kv89wyggi2n803k2jab9ecvnxj4nfa3c', 'YzRkNzJjMDY0NmRjMjJjMDM0OTRiZDJlY2QyMzg4ZWM4Y2NjZWZlZDp7Il9hdXRoX3VzZXJfaGFzaCI6ImQ5NWJjNDRlMWRlZjQ4MTZiNDFkNTkzZjY2N2U4N2FjZGMyYjY1ODQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2018-03-22 20:52:28.575809');
+
 -- --------------------------------------------------------
 
 --
@@ -222,6 +229,16 @@ CREATE TABLE `feature_request_feature` (
   `client_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feature_request_feature`
+--
+
+INSERT INTO `feature_request_feature` (`id`, `title`, `description`, `target_date`, `priority`, `client_id`, `product_id`) VALUES
+(1, 'Add Bill Description', 'Add User Roles and Permissions', '2018-03-31 00:00:00.000000', 1, 1, 1),
+(2, 'Add Claim Email', 'Add Claim Email', '2018-03-31 00:00:00.000000', 2, 1, 2),
+(3, 'Add Report Metrics', 'Add Report Metrics', '2018-03-31 00:00:00.000000', 3, 2, 3),
+(4, 'Define Policies', 'Define Policies', '2018-03-31 00:00:00.000000', 4, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -261,13 +278,6 @@ CREATE TABLE `users_customuser` (
   `contact_number` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users_customuser`
---
-
-INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `first_name`, `last_name`, `email`, `contact_number`) VALUES
-(1, 'pbkdf2_sha256$36000$S2eH3pEGNGk9$Cxv8O6aLbDoSawPWsx1jm53b7VMTL92oJ5ul4VP4V1g=', '2018-03-08 20:21:34.796505', 'Priyanka', 'Jain', 'priyankajain.madeeasy@gmail.com', '098995 82763');
-
 -- --------------------------------------------------------
 
 --
@@ -300,7 +310,12 @@ CREATE TABLE `users_employeedepartment` (
 --
 
 INSERT INTO `users_employeedepartment` (`id`, `name`, `description`, `d_code`) VALUES
-(1, 'Information Technology', 'Information Technology', 'IT');
+(1, 'Information Technology', 'Information Technology', 'IT'),
+(2, 'Sales & Marketing', 'Sales & Marketing', 'SM'),
+(3, 'Consulting', 'Consulting', 'CD'),
+(4, 'Actuarial services', 'Actuarial services', 'AS'),
+(5, 'Finance & Accounting', 'Finance & Accounting', 'FA'),
+(6, 'Research & Development', 'Research & Development', 'RD');
 
 --
 -- Indexes for dumped tables
@@ -442,7 +457,7 @@ ALTER TABLE `feature_request_client`
 -- AUTO_INCREMENT for table `feature_request_feature`
 --
 ALTER TABLE `feature_request_feature`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `feature_request_product`
 --
@@ -462,7 +477,7 @@ ALTER TABLE `users_employee`
 -- AUTO_INCREMENT for table `users_employeedepartment`
 --
 ALTER TABLE `users_employeedepartment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
