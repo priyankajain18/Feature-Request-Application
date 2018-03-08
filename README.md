@@ -42,5 +42,5 @@ python manage.py collectstatic
 6. Start server
 ```
 python manage.py runserver
-Access http://127.0.0.1:8000/weather-report/
+Access http://127.0.0.1:8000/
 ```
