@@ -44,6 +44,11 @@ python manage.py collectstatic
 python manage.py runserver
 Access http://127.0.0.1:8000/
 ```
+7. Test Credentials
+```
+Email - priyanka.jain@gmail.com
+Password - 123456
+```
 ## Screenshots
 ![Sign Up Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/signup.png)
 ---

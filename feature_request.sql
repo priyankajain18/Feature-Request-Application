@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2018 at 10:23 PM
+-- Generation Time: Mar 08, 2018 at 10:40 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.5.34
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `feature_request`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -278,6 +278,13 @@ CREATE TABLE `users_customuser` (
   `contact_number` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `users_customuser`
+--
+
+INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `first_name`, `last_name`, `email`, `contact_number`) VALUES
+(2, 'pbkdf2_sha256$36000$3zhbWaSoAS2f$3PvmO8BdS6UupS1XKNdJOK8soUccCi3zFCBEVeguxhk=', NULL, 'Priyanka', 'Jain', 'priyanka.jain@gmail.com', '098999 89998');
+
 -- --------------------------------------------------------
 
 --
@@ -291,6 +298,13 @@ CREATE TABLE `users_employee` (
   `department_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users_employee`
+--
+
+INSERT INTO `users_employee` (`id`, `employee_code`, `joining_date`, `department_id`, `user_id`) VALUES
+(2, 'PJ-IT', '2018-03-08', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -467,12 +481,12 @@ ALTER TABLE `feature_request_product`
 -- AUTO_INCREMENT for table `users_customuser`
 --
 ALTER TABLE `users_customuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users_employee`
 --
 ALTER TABLE `users_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users_employeedepartment`
 --

@@ -24,7 +24,7 @@
                     <tr>
                         <td>
                             <span class="pull-left"><a href="{% url 'feature_detail' feature.id %}">{{feature.title}}</a></span>
-                            <span class="pull-right"><a href="/feature/edit/{{feature.id}}/">Edit</a></span>
+                            <span class="pull-right"><a href="{% url 'feature_edit' feature.id %}">Edit</a></span>
                         </td>
                         <td>{{feature.client.name}}</td>
                         <td>{{feature.priority}}</td>
