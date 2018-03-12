@@ -49,6 +49,10 @@ Access http://127.0.0.1:8000/
 Email - priyanka.jain@gmail.com
 Password - 123456
 ```
+8. Test Cases
+```
+python manage.py test -v 2 feature_request/tests/
+```
 ## Screenshots
 ![Sign Up Screenshot](https://github.com/priyankajain18/Feature-Request-Application/blob/master/screenshots/signup.png)
 ---

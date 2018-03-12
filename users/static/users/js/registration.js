@@ -52,7 +52,7 @@ function signup(){
             dataType: "json",
             success: function(response){
                 if(response.e_message == ''){
-                    location.href = "/thanks/";
+                    window.location = "/thanks/";
                 }
                 else{
                     customAlert(response.e_message);
