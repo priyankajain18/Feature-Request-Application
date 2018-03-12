@@ -5,6 +5,10 @@ from rest_framework import status
 from feature_request.models import Feature
 
 class FeatureAddAPIView(APIView):
+    '''
+    Add/Edit Feature Request API View
+    '''
+
     def post(self, request, *args, **kwargs):
         data = request.POST
         
@@ -30,14 +34,17 @@ class FeatureAddAPIView(APIView):
                 return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
             try:
+                # Checks if feature request of a particular client with a given priority exists or not
                 feature = Feature.objects.get(client_id=data['client_id'], priority=data['priority'])
-                if feature:
+                
+                if feature: # If feature request exists, reorder the priority of all the feature requests of that client
                     client_features = Feature.objects.filter(client_id=data['client_id'], priority__gte=data['priority'])
                     for feature in client_features.order_by('-priority'):
                         feature.priority += 1
                         feature.save()
-                    Feature.objects.create(**feature_data)
+                    Feature.objects.create(**feature_data) # Creates a new feature request with requested priority
+            
             except Feature.DoesNotExist:
-                Feature.objects.create(**feature_data)
+                Feature.objects.create(**feature_data) # Creates a new feature request with requested priority
 
         return Response(status=status.HTTP_201_CREATED)

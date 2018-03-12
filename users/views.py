@@ -12,15 +12,17 @@ from users.models import EmployeeDepartment, Employee, CustomUser
 @api_view(['GET', 'POST'])
 def sign_up(request):
     if request.method == "GET":
-        departments = EmployeeDepartment.objects.all()
+        departments = EmployeeDepartment.objects.all() # Retrieve Departments
         return render(request, 'users/sign_up.html', {'departments': departments})
 
     if request.method == "POST":
         data = request.POST
         
+        # Check if employee already exists in database
         if Employee.objects.filter(employee_code=data['e_code']) or Employee.objects.filter(user__email=data['email']):
             return Response({'e_message': 'Employee Already Exists'})
-            
+        
+        # Creates new user and employee if employee doesn't exist in database    
         user = CustomUser.objects.create_user(email=data['email'], \
             password=data['password'], first_name=data['first_name'], last_name=data['last_name'], \
             contact_number=data['contact_number'])
@@ -37,6 +39,7 @@ def sign_in(request):
         data = request.POST
         context = {}
 
+        # Authenticate User
         user = auth.authenticate(email=data['email'], password=data['password'])
         if user is not None:
             auth.login(request, user)
@@ -51,5 +54,6 @@ def sign_in(request):
         return Response(context)
 
 def logout(request):
+    # Logout User
     auth.logout(request)
     return render(request, 'users/sign_in.html')
